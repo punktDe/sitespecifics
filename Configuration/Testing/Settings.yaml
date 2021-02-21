@@ -1,0 +1,7 @@
+#PunktDe:
+#  SiteSpecifics:
+#    mySite:
+#      nodeTypes:
+#        'Vendor.Package:Content.NodeType':
+#          ui:
+#            group: not-shown

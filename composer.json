@@ -1,0 +1,19 @@
+{
+    "description": "Site specific configuration",
+    "type": "neos-package",
+    "name": "punktde/sitespecifics",
+    "license": "MIT",
+    "require": {
+        "neos/neos": "^5.0 || ^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "PunktDe\\SiteSpecifics\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "PunktDe.SiteSpecifics"
+        }
+    }
+}

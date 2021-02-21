@@ -1,0 +1,9 @@
+'PunktDe.SiteSpecifics:Content.Headline':
+  superTypes:
+    'Neos.Neos:Content': true
+    'Neos.NodeTypes.BaseMixins:TitleMixin': true
+  ui:
+    label: i18n
+    icon: 'icon-header'
+    position: 100
+    group: basic
