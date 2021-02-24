@@ -1,7 +1,7 @@
-#PunktDe:
-#  SiteSpecifics:
-#    mySite:
-#      nodeTypes:
-#        'Vendor.Package:Content.NodeType':
-#          ui:
-#            group: not-shown
+PunktDe:
+  SiteSpecifics:
+    mySite:
+      nodeTypes:
+        'PunktDe.SiteSpecifics:Content.Headline':
+          ui:
+            group: not-shown
