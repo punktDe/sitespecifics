@@ -1,1 +1,2 @@
 backend.configuration.endpoints.nodeTypeSchema.arguments.site = ${site.context.currentSite.name}
+backend.configuration.endpoints.nodeTypeSchema.arguments.version.@process.addsite = ${value + '_' + String.md5(site.context.currentSite.name)}
