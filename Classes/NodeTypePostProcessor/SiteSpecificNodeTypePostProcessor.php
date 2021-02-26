@@ -9,7 +9,6 @@ namespace PunktDe\SiteSpecifics\NodeTypePostProcessor;
  */
 
 use Neos\Flow\Annotations as Flow;
-use GuzzleHttp\Psr7\ServerRequest;
 use Neos\ContentRepository\Domain\Model\NodeType;
 use Neos\ContentRepository\NodeTypePostprocessor\NodeTypePostprocessorInterface;
 use Neos\Utility\Arrays;
