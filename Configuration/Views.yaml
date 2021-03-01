@@ -13,5 +13,5 @@
   viewObjectName: 'Neos\Fusion\View\FusionView'
   options:
     fusionPathPatterns:
-      - 'resource://Neos.Neos.Ui/Private/Fusion/Backend'
-      - 'resource://PunktDe.SiteSpecifics/Private/Fusion/Override/Neos.Neos.Ui'
+      backendDefault: 'resource://Neos.Neos.Ui/Private/Fusion/Backend'
+      siteSpecifics: 'resource://PunktDe.SiteSpecifics/Private/Fusion/Override/Neos.Neos.Ui'
