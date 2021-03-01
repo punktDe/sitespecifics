@@ -4,7 +4,8 @@
     "name": "punktde/sitespecifics",
     "license": "MIT",
     "require": {
-        "neos/neos": "^5.0 || ^7.0"
+        "neos/neos": "^5.0 || ^7.0",
+        "neos/neos-ui": "*"
     },
     "autoload": {
         "psr-4": {

@@ -1,0 +1,10 @@
+Neos:
+  Neos:
+    Ui:
+      configurationDefaultEelContext:
+        PunktDe.SiteSpecifics.DimensionFilter: \PunktDe\SiteSpecifics\Eel\SiteSpecificDimensionFilter
+
+      initialState:
+        cr:
+          contentDimensions:
+            byName: '${PunktDe.SiteSpecifics.DimensionFilter.filter(Neos.Ui.ContentDimensions.contentDimensionsByName(), site)}'

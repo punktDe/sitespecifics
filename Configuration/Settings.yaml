@@ -5,3 +5,8 @@
 #        'Vendor.Package:Content.NodeType':
 #          ui:
 #            group: not-shown
+
+#      dimensionSelector:
+#        country:
+#          language:
+#            de: ~

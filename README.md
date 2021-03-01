@@ -28,3 +28,19 @@ punktDe:
           ui:
             group: not-shown
 ```
+
+### Strip down the backend dimension selector
+
+If a site, eg some microsite on the same instance, should not have all the dimensions of the main site, you can strip down the dimension selector in teh backend. This removes the defined dimension ``de`` from the dimension selector.
+
+This only affects the dimension selector, not the dimension configuration of the Neos content repository itself. That means you should only use this override feature to hide options or restrict combinations.   
+
+```  
+punktDe:
+  SiteSpecifics:
+    yourSiteName:
+      dimensionSelector:
+        language:
+          presets:
+            de: ~
+```
