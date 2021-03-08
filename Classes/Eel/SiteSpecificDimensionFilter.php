@@ -12,6 +12,7 @@ use Neos\Flow\Annotations as Flow;
 use Neos\ContentRepository\Domain\Model\NodeInterface;
 use Neos\Eel\ProtectedContextAwareInterface;
 use Neos\Utility\Arrays;
+use PunktDe\SiteSpecifics\Service\DimensionCombinationService;
 
 class SiteSpecificDimensionFilter implements ProtectedContextAwareInterface
 {
@@ -24,20 +25,8 @@ class SiteSpecificDimensionFilter implements ProtectedContextAwareInterface
 
     public function filter(array $dimensions, NodeInterface $site): array
     {
-
         $dimensionSelectorOverride = Arrays::getValueByPath($this->settings, $site->getContext()->getCurrentSite()->getName() . '.dimensionSelector');
-
-        if ($dimensionSelectorOverride === null) {
-            return $dimensions;
-        }
-
-        $filteredDimensions = Arrays::arrayMergeRecursiveOverrule($dimensions, $dimensionSelectorOverride);
-
-        foreach ($filteredDimensions as $dimensionKey => $dimensionConfiguration) {
-            $filteredDimensions[$dimensionKey]['presets'] = array_filter($filteredDimensions[$dimensionKey]['presets']);
-        }
-
-        return $filteredDimensions;
+        return DimensionCombinationService::adjustDimensionCombinations($dimensions, $dimensionSelectorOverride);
     }
 
     public function allowsCallOfMethod($methodName)
