@@ -24,7 +24,6 @@ class DimensionCombinationService
         foreach ($filteredDimensions as $dimensionKey => $dimensionConfiguration) {
             $filteredDimensions[$dimensionKey]['presets'] = array_filter($filteredDimensions[$dimensionKey]['presets']);
         }
-
         return $filteredDimensions;
     }
 }

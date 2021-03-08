@@ -14,10 +14,15 @@ class SiteDeterminationService
 {
     public static ?string $siteName = null;
 
-    public function getCurrentSiteName(): string
+    public function getCurrentSiteName(): ?string
     {
-        if (self::$siteName === null) {
-            $httpRequest = ServerRequest::fromGlobals();
+        if (self::$siteName !== null) {
+            return self::$siteName;
+        }
+
+        $httpRequest = ServerRequest::fromGlobals();
+
+        if (array_key_exists('site', $httpRequest->getQueryParams())) {
             self::$siteName = $httpRequest->getQueryParams()['site'] ?? '';
         }
 
