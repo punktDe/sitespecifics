@@ -1,0 +1,10 @@
+'Neos\ContentRepository\Domain\Service\ContentDimensionPresetSourceInterface':
+  className: PunktDe\SiteSpecifics\Service\SiteSpecificContentDimensionPresetSource
+
+'Neos\Neos\Domain\Service\ContentDimensionPresetSourceInterface':
+  className: PunktDe\SiteSpecifics\Service\SiteSpecificContentDimensionPresetSource
+
+PunktDe\SiteSpecifics\Service\SiteSpecificContentDimensionPresetSource:
+  properties:
+    configuration:
+      setting: Neos.ContentRepository.contentDimensions

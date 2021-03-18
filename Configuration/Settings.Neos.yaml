@@ -1,4 +1,10 @@
 Neos:
+  Flow:
+    mvc:
+      routes:
+        'PunktDe.SiteSpecifics':
+          position: 'before Neos.Neos'
+
   Neos:
     Ui:
       configurationDefaultEelContext:

@@ -19,27 +19,16 @@ use PunktDe\SiteSpecifics\Service\DimensionCombinationService;
 
 class SiteSpecificContentDimensionsHelper implements ProtectedContextAwareInterface
 {
-
-    /**
-     * @Flow\InjectConfiguration(package="PunktDe.SiteSpecifics")
-     * @var array
-     */
-    protected $settings;
-
     /**
      * @Flow\Inject
      * @var ContentDimensionPresetSourceInterface
      */
     protected $contentDimensionsPresetSource;
 
-    /**
-     * @var ConfigurationContentDimensionPresetSource
-     */
-    protected $alteredContentDimensionsPresetSource;
-
     public function contentDimensionsByNameForSite(NodeInterface $site): array
     {
-        return $this->getAlteredPresetSource($site)->getAllPresets();
+        $this->alteredPresetSource($site);
+        return $this->contentDimensionsPresetSource->getAllPresets();
     }
 
     /**
@@ -49,39 +38,26 @@ class SiteSpecificContentDimensionsHelper implements ProtectedContextAwareInterf
      */
     public function allowedPresetsByNameForSite(array $dimensions, NodeInterface $site): array
     {
+        $this->alteredPresetSource($site);
+
         $allowedPresets = [];
         $preselectedDimensionPresets = [];
         foreach ($dimensions as $dimensionName => $dimensionValues) {
-            $preset = $this->getAlteredPresetSource($site)->findPresetByDimensionValues($dimensionName, $dimensionValues);
+            $preset = $this->contentDimensionsPresetSource->findPresetByDimensionValues($dimensionName, $dimensionValues);
             if ($preset !== null) {
                 $preselectedDimensionPresets[$dimensionName] = $preset['identifier'];
             }
         }
         foreach ($preselectedDimensionPresets as $dimensionName => $presetName) {
-            $presets = $this->getAlteredPresetSource($site)->getAllowedDimensionPresetsAccordingToPreselection($dimensionName, $preselectedDimensionPresets);
+            $presets = $this->contentDimensionsPresetSource->getAllowedDimensionPresetsAccordingToPreselection($dimensionName, $preselectedDimensionPresets);
             $allowedPresets[$dimensionName] = array_keys($presets[$dimensionName]['presets']);
         }
         return $allowedPresets;
     }
 
-    protected function getAlteredPresetSource(NodeInterface $site): ContentDimensionPresetSourceInterface
+    protected function alteredPresetSource(NodeInterface $site): void
     {
-        if ($this->alteredContentDimensionsPresetSource instanceof ContentDimensionPresetSourceInterface) {
-            return $this->alteredContentDimensionsPresetSource;
-        }
-
-        if($this->contentDimensionsPresetSource instanceof DependencyProxy) {
-            $this->contentDimensionsPresetSource->_activateDependency();
-        }
-
-        $this->alteredContentDimensionsPresetSource = clone $this->contentDimensionsPresetSource;
-        $originalConfiguration = ObjectAccess::getProperty($this->contentDimensionsPresetSource, 'configuration', true);
-
-        $dimensionSelectorOverride = $this->settings[$site->getContext()->getCurrentSite()->getName()]['dimensionSelector'] ?? null;
-        $alteredConfiguration = DimensionCombinationService::adjustDimensionCombinations($originalConfiguration, $dimensionSelectorOverride);
-        $this->alteredContentDimensionsPresetSource->setConfiguration($alteredConfiguration);
-
-        return $this->alteredContentDimensionsPresetSource;
+        $this->contentDimensionsPresetSource->alterPresetSourceForSite($site->getContext()->getCurrentSite()->getName());
     }
 
 

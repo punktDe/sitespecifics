@@ -1,0 +1,22 @@
+-
+  name: 'Services - ContentDimensionController->index() with site'
+  uriPattern: 'content-dimensions/{site}'
+  defaults:
+    '@package':    'Neos.Neos'
+    '@controller': 'Service\ContentDimensions'
+    '@action':     'index'
+    site: ''
+  appendExceedingArguments: true
+  httpMethods: ['GET']
+
+-
+  name: 'Services - ContentDimensionController->show() with site'
+  uriPattern: 'content-dimensions/{site}/{dimensionName}(.{@format})'
+  defaults:
+    '@package':    'Neos.Neos'
+    '@controller': 'Service\ContentDimensions'
+    '@action':     'show'
+    '@format':     'html'
+    site: ''
+  appendExceedingArguments: true
+  httpMethods: ['GET']
