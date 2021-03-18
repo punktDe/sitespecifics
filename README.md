@@ -35,7 +35,7 @@ If a site, eg some microsite on the same instance, should not have all the dimen
 
 This only affects the dimension selector, not the dimension configuration of the Neos content repository itself. That means you should only use this override feature to hide options or restrict combinations.   
 
-**Example 1 - remove a preset completely: **
+**Example 1 - remove a preset completely:**
 
 ```  
 PunktDe:
@@ -47,7 +47,7 @@ PunktDe:
             de: ~
 ```
 
-**Example 2 - disallow a combination: **
+**Example 2 - disallow a combination:**
 
 ```
 PunktDe:
