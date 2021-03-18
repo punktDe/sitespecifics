@@ -20,7 +20,7 @@ composer require punktde/sitespecifics
 You can adjust node type configuration to adjust the backend view. For example, to show / hide a node type in the creation dialog when editing the site `yourSiteName` add to your Settings.yaml :
 
 ```  
-punktDe:
+PunktDe:
   SiteSpecifics:
     yourSiteName:
       nodeTypes:
@@ -36,7 +36,7 @@ If a site, eg some microsite on the same instance, should not have all the dimen
 This only affects the dimension selector, not the dimension configuration of the Neos content repository itself. That means you should only use this override feature to hide options or restrict combinations.   
 
 ```  
-punktDe:
+PunktDe:
   SiteSpecifics:
     yourSiteName:
       dimensionSelector:
