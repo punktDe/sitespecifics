@@ -1,5 +1,7 @@
 # PunktDe.SiteSpecifics
 
+[![Latest Stable Version](https://poser.pugx.org/punktDe/sitespecifics/v/stable)](https://packagist.org/packages/punktDe/sitespecifics) [![Total Downloads](https://poser.pugx.org/punktDe/sitespecifics/downloads)](https://packagist.org/packages/punktDe/sitespecifics) [![License](https://poser.pugx.org/punktDe/sitespecifics/license)](https://packagist.org/packages/punktDe/sitespecifics)
+
 In Neos you can serve multiple sites based on different site packages within the same Neos instance. While the frontend rendering can be completely separated per package, the configuration in Neos is global, so the same for all site packages.
 
 
