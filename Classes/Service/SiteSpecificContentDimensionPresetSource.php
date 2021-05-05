@@ -29,7 +29,7 @@ class SiteSpecificContentDimensionPresetSource extends ConfigurationContentDimen
      */
     protected $settings;
 
-    protected bool $configurationAdjusted = false;
+    protected $configurationAdjusted = false;
 
     public function initializeObject(): void
     {

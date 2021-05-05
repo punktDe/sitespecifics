@@ -12,7 +12,7 @@ use GuzzleHttp\Psr7\ServerRequest;
 
 class SiteDeterminationService
 {
-    public static ?string $siteName = null;
+    public static $siteName = null;
 
     public function getCurrentSiteName(): ?string
     {
