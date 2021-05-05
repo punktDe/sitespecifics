@@ -11,11 +11,7 @@ namespace PunktDe\SiteSpecifics\Eel;
 use Neos\Flow\Annotations as Flow;
 use Neos\ContentRepository\Domain\Model\NodeInterface;
 use Neos\Eel\ProtectedContextAwareInterface;
-use Neos\Flow\ObjectManagement\DependencyInjection\DependencyProxy;
-use Neos\Neos\Domain\Service\ConfigurationContentDimensionPresetSource;
 use Neos\Neos\Domain\Service\ContentDimensionPresetSourceInterface;
-use Neos\Utility\ObjectAccess;
-use PunktDe\SiteSpecifics\Service\DimensionCombinationService;
 
 class SiteSpecificContentDimensionsHelper implements ProtectedContextAwareInterface
 {

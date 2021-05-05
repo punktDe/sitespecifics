@@ -1,14 +1,4 @@
 -
-  requestFilter: 'isPackage("Cgm.BackendSecurity") && isController("BackendUserNotification") && isFormat("html")'
-  viewObjectName: 'Neos\Fusion\View\FusionView'
-  options:
-    fusionPathPatterns:
-      - 'resource://Neos.Fusion/Private/Fusion'
-      - 'resource://Neos.Fusion.Form/Private/Fusion'
-      - 'resource://Cgm.Base/Private/Fusion'
-      - 'resource://Cgm.BackendSecurity/Private/Fusion'
-
--
   requestFilter: 'isPackage("Neos.Neos.Ui") && isController("Backend")'
   viewObjectName: 'Neos\Fusion\View\FusionView'
   options:
