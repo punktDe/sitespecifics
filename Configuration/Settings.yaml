@@ -1,3 +1,4 @@
+--
 #PunktDe:
 #  SiteSpecifics:
 #    mySite:
@@ -7,6 +8,13 @@
 #            group: not-shown
 
 #      dimensionSelector:
-#        country:
-#          language:
+#        language:
+#          presets:
 #            de: ~
+
+#        country:
+#          presets:
+#            deu:
+#              constraints:
+#                language:
+#                  'en': false
