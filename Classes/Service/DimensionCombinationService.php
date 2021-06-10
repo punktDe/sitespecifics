@@ -22,7 +22,7 @@ class DimensionCombinationService
         $filteredDimensions = Arrays::arrayMergeRecursiveOverrule($originalDimensionCombinations, $siteSpecificOverride);
 
         foreach ($filteredDimensions as $dimensionKey => $dimensionConfiguration) {
-            $filteredDimensions[$dimensionKey]['presets'] = array_filter($filteredDimensions[$dimensionKey]['presets']);
+            $filteredDimensions[$dimensionKey]['presets'] = array_filter($dimensionConfiguration['presets']);
         }
         return $filteredDimensions;
     }

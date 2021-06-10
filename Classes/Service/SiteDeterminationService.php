@@ -34,7 +34,7 @@ class SiteDeterminationService
          * Site as uri path segment
          * Used to get dimension constraints in the backend
          */
-        preg_match('/content-dimensions\/([a-zA-Z\-\_\.]+)\/[a-zA-Z\-\_]+\.json/', $httpRequest->getUri()->getPath(), $matches, PREG_OFFSET_CAPTURE);
+        preg_match('/content-dimensions\/([a-zA-Z\-_.]+)\/[a-zA-Z\-_]+\.json/', $httpRequest->getUri()->getPath(), $matches, PREG_OFFSET_CAPTURE);
         if (($matches[1] ?? null) !== null) {
             self::$siteName = $matches[1][0];
             return self::$siteName;
