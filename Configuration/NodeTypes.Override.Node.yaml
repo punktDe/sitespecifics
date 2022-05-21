@@ -2,4 +2,4 @@
   postprocessors:
     'SiteSpecificNodeTypePostProcessor':
       postprocessor: 'PunktDe\SiteSpecifics\NodeTypePostProcessor\SiteSpecificNodeTypePostProcessor'
-      postion: end
+      position: end
