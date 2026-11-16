@@ -27,7 +27,7 @@ class SiteSpecificNodeTypePostProcessorTest extends FunctionalTestCase
         $this->nodeTypeManager->overrideNodeTypes([]);
     }
 
-    public function configurationTestDataProvider(): array
+    public static function configurationTestDataProvider(): array
     {
         return [
             'simple value override' => [

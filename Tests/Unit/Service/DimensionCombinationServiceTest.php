@@ -15,7 +15,7 @@ use PunktDe\SiteSpecifics\Service\DimensionCombinationService;
 class DimensionCombinationServiceTest extends UnitTestCase
 {
 
-    protected array $originalDimensionCombinations = [
+    protected static array $originalDimensionCombinations = [
         'country' => [
             'default' => 'countrySelect',
             'defaultPreset' => 'countrySelect',
@@ -74,9 +74,9 @@ class DimensionCombinationServiceTest extends UnitTestCase
         ],
     ];
 
-    public function combinationOverrideDataProvider(): array
+    public static function combinationOverrideDataProvider(): array
     {
-        $originalCombinations = $this->originalDimensionCombinations;
+        $originalCombinations = self::$originalDimensionCombinations;
 
         return [
             'preset can be removed' => [
@@ -87,7 +87,7 @@ class DimensionCombinationServiceTest extends UnitTestCase
                         ],
                     ],
                 ],
-                'expected' => Arrays::unsetValueByPath($this->originalDimensionCombinations, 'country.presets.deu'),
+                'expected' => Arrays::unsetValueByPath(self::$originalDimensionCombinations, 'country.presets.deu'),
             ],
             'value can be set to false'=> [
                 'override' => [
@@ -103,7 +103,7 @@ class DimensionCombinationServiceTest extends UnitTestCase
                         ],
                     ],
                 ],
-                'expected' => Arrays::setValueByPath($this->originalDimensionCombinations, 'country.presets.deu.constraints.language.en', false),
+                'expected' => Arrays::setValueByPath(self::$originalDimensionCombinations, 'country.presets.deu.constraints.language.en', false),
             ],
         ];
     }
@@ -117,7 +117,7 @@ class DimensionCombinationServiceTest extends UnitTestCase
      */
     public function adjustDimensionCombination(array $override, array $expected): void
     {
-        self::assertEquals($expected, DimensionCombinationService::adjustDimensionCombinations($this->originalDimensionCombinations, $override));
+        self::assertEquals($expected, DimensionCombinationService::adjustDimensionCombinations(self::$originalDimensionCombinations, $override));
     }
 
 }
